@@ -1,0 +1,21 @@
+import tkinter as tk
+
+class test():
+    def __init__(self, master):
+        self.master=master
+        self.present=tk.IntVar()
+        self.presentcheckbutton = tk.Checkbutton(master, var = self.present)
+        self.presentcheckbutton.grid(row=0, column=0)
+
+        tk.Button(master, text="get", width=10, bg="yellow",
+               command=self.callback).grid(row=10, column=0)
+
+    def callback(self):
+        self.present=self.present.get()
+        self.master.quit()
+
+master = tk.Tk()
+options = test(master)
+master.mainloop()
+
+print("\n***** after tkinter exits, entered =", options.present)
